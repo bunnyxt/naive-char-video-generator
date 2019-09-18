@@ -30,7 +30,8 @@ if __name__ == "__main__":
     if not video.isOpened() :
         print("Error! Cannot open file {0} as a video!".format(file_name))
         exit(0)
-    shutil.rmtree("workspace")
+    if os.path.exists("workspace"):
+        shutil.rmtree("workspace")
     os.mkdir("workspace")
 
     # 02 separate video and audio
